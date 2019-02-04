@@ -87,7 +87,7 @@ class GMap extends PropertyType
 
         $field->widget(MapInputWidget::className(),
             [
-                'key'             => 'AIzaSyDv9KSAIgM4tbH-q-KCL4EURjH0buplJN8',
+                'key'             => \Yii::$app->googleMap->googleMapApiKey,
                 'width'           => '100%',
                 'height'          => $this->height . 'px',
                 'mapType'         => 'roadmap',
