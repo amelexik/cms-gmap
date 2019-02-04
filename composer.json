@@ -1,6 +1,5 @@
 {
   "name": "skeeks/cms-gmap",
-  "version": "1.0.0-alpha",
   "description": "Googlemap for SkeekS CMS",
   "keywords": [
     "yii",
