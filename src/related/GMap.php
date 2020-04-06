@@ -61,11 +61,12 @@ class GMap extends PropertyType
     /**
      * @return string
      */
-    public function renderConfigForm(ActiveForm $activeForm)
+    public function renderConfigFormFields(ActiveForm $activeForm)
     {
-        echo $activeForm->field($this, 'height');
-        echo $activeForm->field($this, 'zoom');
-        echo $activeForm->field($this, 'center');
+        $result = $activeForm->field($this, 'height');
+        $result .= $activeForm->field($this, 'zoom');
+        $result .= $activeForm->field($this, 'center');
+        return $result;
     }
 
 
@@ -95,6 +96,8 @@ class GMap extends PropertyType
                 'animateMarker'   => true,
                 'alignMapCenter'  => false,
                 'enableSearchBar' => true,
+                'latitude'        => $center[0],
+                'longitude'        => $center[1],
             ]
         );
 

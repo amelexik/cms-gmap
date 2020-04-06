@@ -1,6 +1,7 @@
 <?php
 
 namespace skeeks\cms\gmap;
+use skeeks\cms\gmap\assets\CmsGoogleMapAsset;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -22,6 +23,9 @@ class CmsGoogleMapComponent extends \skeeks\cms\base\Component
     {
         return array_merge(parent::descriptorConfig(), [
             'name' => \Yii::t('cms/gmap', 'Google Map'),
+            'image' => [
+            CmsGoogleMapAsset::class, 'icons/icons-gmap-100.png'
+            ],
         ]);
     }
 
@@ -49,11 +53,12 @@ class CmsGoogleMapComponent extends \skeeks\cms\base\Component
      * @param \yii\widgets\ActiveForm $form
      * @return string|void
      */
-    public function renderConfigForm(\yii\widgets\ActiveForm $form)
+    public function renderConfigFormFields(\yii\widgets\ActiveForm $form)
     {
 
-        echo $form->fieldSet(\Yii::t('cms/gmap', 'Settimg'));
-        echo $form->field($this, 'googleMapApiKey');
-        echo $form->fieldSetEnd();
+        $result = $form->fieldSet(\Yii::t('cms/gmap', 'Settimg'));
+        $result .= $form->field($this, 'googleMapApiKey');
+        $result .= $form->fieldSetEnd();
+        return $result;
     }
 }
